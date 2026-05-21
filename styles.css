@@ -13,6 +13,8 @@ body {
     "Helvetica Neue",
     sans-serif;
   margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .icon {
@@ -72,7 +74,7 @@ body {
 .work-grid {
   display: grid;
   gap: 60px;
-  grid-template: repeat(400px, 6) / 400px;
+  grid-template: repeat(6, 1fr) / 1fr;
 }
 
 .project {
@@ -109,13 +111,79 @@ body {
 
 .contact {
   background-color: rgb(228, 224, 217);
+}
+
+.contact-info {
   padding: 20px;
   text-align: center;
 }
 
-.contact h1 {
+.contact-image img {
+  width: 100%;
+  display: block;
 }
 
-.portrait-final {
-  width: 100%;
+/* Tablet */
+@media (min-width: 800px) {
+  .about {
+    flex-direction: row;
+    margin: 40px;
+  }
+
+  .about-me {
+    background: white;
+    box-shadow: 0 0px 12px rgba(0, 0, 0, 0.15);
+    padding: 40px;
+  }
+
+  .portrait {
+    width: 45%;
+    min-width: 400px;
+    max-width: 420px;
+    flex-shrink: 0;
+  }
+
+  .work {
+    margin: 150px 70px;
+  }
+
+  .work-grid {
+    grid-template: repeat(3, 1fr) / 1fr 1fr;
+  }
+
+  .contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 100px;
+  }
+
+  .contact-image img {
+    height: 400px;
+    display: block;
+    margin: 50px;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    object-position: 50% 20%;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1300px) {
+  .about {
+    margin: 60px;
+    max-width: 1200px;
+    align-self: center;
+  }
+
+  .work {
+    margin: 120px 150px;
+  }
+
+  .project > img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .work-grid {
+    grid-template: repeat(2, 1fr) / 1fr 1fr 1fr;
+  }
 }
